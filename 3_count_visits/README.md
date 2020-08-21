@@ -1,6 +1,9 @@
 # COUNT VISITS
 
 - counting visits on our site using an in memory storage service called redis.
+- we need 2 conatiners here
+  - nodejs
+  - redis
 
 ## Build Image
 
@@ -9,6 +12,7 @@
 ```
 
 ## Run a redis server
+
 ```
 > docker run redis
 ```
@@ -16,7 +20,7 @@
 ## Networking
 
 - Setup networking between these 2 containers
-- Using Docker Compose is best method
+- Using Docker Compose
 
 ## Docker Compose
 
