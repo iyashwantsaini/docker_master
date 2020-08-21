@@ -1,0 +1,29 @@
+# alpine doesnt have node installed
+# FROM alpine
+# RUN apk add --update npm
+# RUN npm install
+# CMD ["npm", "start"]
+
+# alpine version of node
+# alpine in docker world means smallest version possible
+
+FROM node:alpine
+
+# USED TO PREVENT WORKING IN ROOT OF CONTAINER
+# NOW EVERY PATH IN CONTAINER WILL BE RELATIVE TO THIS
+WORKDIR /usr/app
+
+# copy everything from current dir to root of container
+# this is necessary to move package.json and index.js to container
+# COPY ./ ./
+
+COPY ./package.json ./
+
+RUN npm install
+
+# we only make changes to index.js
+# so now for every rebuild only this step will be done
+# above all will be cached now
+COPY ./ ./
+
+CMD ["npm", "start"]
