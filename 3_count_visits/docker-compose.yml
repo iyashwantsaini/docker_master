@@ -1,0 +1,22 @@
+# run redis img
+# run node img from DockerFile
+
+version: "3"
+services:
+  # all these services are on same network for info exchange
+  redis-server:
+    # restart container only if some error
+    restart: on-failure
+    # use redis image to build this
+    image: "redis"
+    # build from DockerFile
+  node-app:
+    # restart container whenever crashes
+    restart: always
+    # build: .
+    build:
+      context: ./
+      dockerfile: ./DockerFile
+    # you can map as many ports as you want
+    ports:
+      - "8080:8080"

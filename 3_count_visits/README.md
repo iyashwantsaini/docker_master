@@ -17,6 +17,14 @@
 > docker run redis
 ```
 
+## Run docker image
+
+```
+> docker run -p 8080:8080 meyash/counts
+
+But this will show error -/
+```
+
 ## Networking
 
 - Setup networking between these 2 containers
@@ -26,9 +34,52 @@
 
 - Used to start multiple containers at same time.
 - Automates the complicated connection, mapping parts.
+- all these services/containers are on same network for info exchange
 
-## Run docker image
+## Run Container
 
 ```
-> docker run -p 8080:8080 meyash/counts
+> docker-compose up
 ```
+
+Rebuilding Image (when files changed)
+
+```
+> docker-compose up --build
+```
+
+## Localhost
+
+```
+GoTo : localhost:8080
+```
+
+## Commands
+
+- Launch in background
+
+```
+> docker-compose up -d
+```
+
+- Stopping Containers
+
+```
+> docker-compose down
+```
+
+- view running composes
+
+```
+> docker-compose ps
+```
+
+## Restarting Containers Automatically
+
+- setting up restart policy
+- types of restart policies
+  - "no"
+  - always
+  - on-failure
+  - unless-stopped
+- useful in any crash
