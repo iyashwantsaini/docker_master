@@ -9,6 +9,8 @@
 
 ## General
 
+- creation
+  - docker_file -> docker_client -> docker_server -> usable_image
 - every linux process has 3 communication channels
   - STDIN
   - STDOUT

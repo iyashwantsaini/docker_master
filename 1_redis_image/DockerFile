@@ -1,0 +1,16 @@
+# using existing img as base
+# alpine comes with many useful programs preinstalled
+FROM alpine
+
+# dwnlod and install a dependency
+# apk = for apache package mgr
+# add/install redis from apk
+RUN apk add --update redis
+
+# tell the image what to do when starts container
+# CMD specifies that run this command in terminal
+CMD ["redis-server"]
+
+# for each step except first, 
+# a new container is created from previous step's image for executing commands, 
+# the required data is saved in a temp image and then that container is stopped
